@@ -1,9 +1,6 @@
 .DS_Store
-node_modules/*
-!node_modules/@nls/
+node_modules/* 
 dist/*
-!dist/accountConfig.js
-!dist/nlsWebConfig.js
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
