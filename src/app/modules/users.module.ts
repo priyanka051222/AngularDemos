@@ -1,7 +1,8 @@
-import { MultiselectDropdownModule } from './shared/dropdown.module';
+
 import { SharedModule} from './shared/shared.module';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MultiselectDropdownModule } from './shared/dropdown.module';
 import { RouterModule } from '@angular/router';
 // Import Components 
 import { UsersComponent } from './../components/usersComponent/users.component';

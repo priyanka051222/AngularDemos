@@ -15,8 +15,7 @@ import { Directive, ElementRef,Input,OnChanges} from '@angular/core';
 
 export class HighlightDirective implements OnChanges{
   @Input('myHighlight') highlightColor: string;
-  
-  
+  @Input('highlightWeight') highlightWeight: string;  
   
   /**
    * Creates an instance of HighlightDirective.
@@ -36,5 +35,11 @@ export class HighlightDirective implements OnChanges{
    */
   ngOnChanges(){
     this.el.nativeElement.style.backgroundColor = this.highlightColor;
+    if(this.highlightWeight){
+      this.el.nativeElement.style.fontWeight = 'bold';
+    }else{
+      this.el.nativeElement.style.fontWeight = 'normal';
+    }
+    
   }
 }

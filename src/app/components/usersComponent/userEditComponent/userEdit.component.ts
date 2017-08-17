@@ -1,4 +1,4 @@
-import { IMultiSelectOption, IMultiSelectSettings } from './../../dropdown/types';
+import { MultiSelectOption } from './../../dropdown/types';
 import { UserService } from './../../../services/user.service';
 import { Component, Input, Output, EventEmitter,OnInit} from '@angular/core'; 
 import { Router } from '@angular/router'; 
@@ -29,8 +29,7 @@ export class UserEditComponent implements OnInit{
     private router :Router,
      private activatedRoute:ActivatedRoute){}
      optionsModel: number[];
-     myGames: IMultiSelectOption[];
-     settingsMultiselect:IMultiSelectSettings;
+     myGames: MultiSelectOption[];
      onChange() {
          console.log(this.optionsModel);
      }
@@ -41,24 +40,14 @@ export class UserEditComponent implements OnInit{
    * Sets user data from user item component
    */
   ngOnInit(){
-    this.settingsMultiselect = {
-      // showUncheckAll:true,
-      // showCheckAll:true,
-      checkedStyle:'checkboxes',
-      enableSearch: true, 
-      buttonClasses: 'btn btn-default btn-block',
-      dynamicTitleMaxItems: 3,
-      displayAllSelectedText: true
-  };
-  
-   // this.user =this.activatedRoute.snapshot.data["user"];
+      // this.user =this.activatedRoute.snapshot.data["user"];
    this.myGames = [
-        { id: 1, name: 'Minesweeper' },
-        { id: 2, name: 'Daisy' },
-        { id: 3, name: 'Casino' },
-        { id: 4, name: 'Ball Pin' },
-        { id: 5, name: 'Roseland' },
-        { id: 6, name: 'DraculaWheels' },
+        { id: 1, label: 'Minesweeper' },
+        { id: 2, label: 'Daisy' },
+        { id: 3, label: 'Casino' },
+        { id: 4, label: 'Ball Pin' },
+        { id: 5, label: 'Roseland' },
+        { id: 6, label: 'DraculaWheels' },
     ];
     this.activatedRoute.data.subscribe(data => {
       this.user = data['user']; 

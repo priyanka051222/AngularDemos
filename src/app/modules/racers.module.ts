@@ -1,3 +1,4 @@
+ 
 import { RacerComponent } from './../components/racerComponent/racer.component';
 
 import { SharedModule } from './shared/shared.module';
@@ -32,6 +33,9 @@ import { HighlightDirective } from '../directives/highlight.directive';
       RouterModule.forChild([
         { path: 'users', component: UsersComponent }
       ])
+  ],
+  exports:[
+    HighlightDirective
   ],
   providers: [UserService],
 })
