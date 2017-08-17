@@ -1,12 +1,9 @@
-import 'rxjs/add/operator/takeUntil';
-import 'rxjs/add/operator/takeUntil';
-
+ 
 import {
   Component,
   DoCheck,
   ElementRef,
-  EventEmitter,
-  forwardRef,
+  EventEmitter, 
   HostListener,
   Input,
   IterableDiffers,
@@ -15,14 +12,23 @@ import {
   OnInit,
   Output,
   SimpleChanges,
-} from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+} from '@angular/core'; ;
 import { Subject } from 'rxjs/Subject';
 
 import { MultiSelectSearchFilter } from './search-filter.pipe';
 import { MultiSelectOption, MultiSelectTexts } from './types';
 
 
+/**
+ * 
+ * 
+ * @export
+ * @class MultiselectDropdown
+ * @implements {OnInit}
+ * @implements {OnChanges}
+ * @implements {DoCheck}
+ * @implements {OnDestroy}
+ */
 @Component({
   selector: 'multiselect-dropdown',
   templateUrl: './dropdown.component.html',
@@ -33,18 +39,29 @@ export class MultiselectDropdown implements OnInit, OnChanges, DoCheck, OnDestro
 
   filteredCount = { count: 0 };
   filterControl: '';
+
+  /**
+   * 
+   * 
+   * @type {Array<MultiSelectOption>}
+   * @memberof MultiselectDropdown
+   */
   @Input() options: Array<MultiSelectOption>;
-  @Input() texts: MultiSelectTexts;
-  @Input() disabled: boolean = false;
+  @Input() texts: MultiSelectTexts; 
   @Input() disabledSelection: boolean = false;
   @Output() selectionLimitReached = new EventEmitter();
   @Output() dropdownClosed = new EventEmitter();
   @Output() dropdownOpened = new EventEmitter();
   @Output() onAdded = new EventEmitter();
   @Output() onRemoved = new EventEmitter();
-  @Output() onLazyLoad = new EventEmitter();
-  //@Output() onFilter: Observable<string> = this.filterControl.valueChanges;
 
+  /**
+   * 
+   * 
+   * @param {HTMLElement} target 
+   * @returns 
+   * @memberof MultiselectDropdown
+   */
   @HostListener('document: click', ['$event.target'])
   onClick(target: HTMLElement) {
     if (!this.isVisible) return;
@@ -68,14 +85,33 @@ export class MultiselectDropdown implements OnInit, OnChanges, DoCheck, OnDestro
   differ: any;
   numSelected: number = 0;
 
+  /**
+   * 
+   * 
+   * @memberof MultiselectDropdown
+   */
   set isVisible(val: boolean) {
     this._isVisible = val;
   }
+
+  /**
+   * 
+   * 
+   * @readonly
+   * @memberof MultiselectDropdown
+   */
   get isVisible() {
     return this._isVisible;
   }
+  
   renderItems = true;
 
+  /**
+   * 
+   * 
+   * @type {MultiSelectTexts}
+   * @memberof MultiselectDropdown
+   */
   defaultTexts: MultiSelectTexts = {
     checked: 'checked',
     checkedPlural: 'checked',
@@ -87,16 +123,37 @@ export class MultiselectDropdown implements OnInit, OnChanges, DoCheck, OnDestro
 
   private _isVisible = false;
   private _hideMe = true;
+
+  /**
+   * Creates an instance of MultiselectDropdown.
+   * @param {ElementRef} element 
+   * @param {MultiSelectSearchFilter} searchFilter 
+   * @param {IterableDiffers} differs 
+   * @memberof MultiselectDropdown
+   */
   constructor(private element: ElementRef,
     private searchFilter: MultiSelectSearchFilter,
     differs: IterableDiffers) {
     this.differ = differs.find([]).create(null);
     this.texts = this.defaultTexts;
   }
+
+  /**
+   * 
+   * 
+   * @memberof MultiselectDropdown
+   */
   ngOnInit() {
     this.texts = Object.assign(this.defaultTexts, this.texts);
     this.title = [this.texts.defaultTitle] || [''];
   }
+
+  /**
+   * 
+   * 
+   * @param {SimpleChanges} changes 
+   * @memberof MultiselectDropdown
+   */
   ngOnChanges(changes: SimpleChanges) {
     if (changes['options']) {
       this.options = this.options || []; 
@@ -108,9 +165,22 @@ export class MultiselectDropdown implements OnInit, OnChanges, DoCheck, OnDestro
       this.updateTitle();
     }
   }
+
+  /**
+   * 
+   * 
+   * @memberof MultiselectDropdown
+   */
   ngOnDestroy() {
     this.destroyed$.next();
   }
+
+  /**
+   * 
+   * 
+   * @param {any} text 
+   * @memberof MultiselectDropdown
+   */
   removeOption(text) {
     this.options.filter((option: MultiSelectOption) => text == option.label)
       .map((option: MultiSelectOption) => {
@@ -119,11 +189,25 @@ export class MultiselectDropdown implements OnInit, OnChanges, DoCheck, OnDestro
         });
       });
   }
+
+  /**
+   * 
+   * 
+   * @param {any} text 
+   * @returns 
+   * @memberof MultiselectDropdown
+   */
   showRemoveButton(text) {
     return this.options.filter((option: MultiSelectOption) => {
       return option.label === text
     }).length > 0;
   }
+
+  /**
+   * 
+   * 
+   * @memberof MultiselectDropdown
+   */
   ngDoCheck() {
     const changes = this.differ.diff(this.model);
     if (changes) {
@@ -131,19 +215,48 @@ export class MultiselectDropdown implements OnInit, OnChanges, DoCheck, OnDestro
       this.updateTitle();
     }
   }
+
+  /**
+   * 
+   * 
+   * @param {Event} event 
+   * @memberof MultiselectDropdown
+   */
   clearSearch(event: Event) {
     if (event.stopPropagation) {
       event.stopPropagation();
     }
     this.filterControl = '';
   }
+
+  /**
+   * 
+   * 
+   * @memberof MultiselectDropdown
+   */
   toggleDropdown() {
     this.isVisible = !this.isVisible;
     this.isVisible ? this.dropdownOpened.emit() : this.dropdownClosed.emit();
   }
+
+  /**
+   * 
+   * 
+   * @param {MultiSelectOption} option 
+   * @returns {boolean} 
+   * @memberof MultiselectDropdown
+   */
   isSelected(option: MultiSelectOption): boolean {
     return this.model && this.model.indexOf(option.id) > -1;
   }
+
+  /**
+   * 
+   * 
+   * @param {Event} _event 
+   * @param {MultiSelectOption} option 
+   * @memberof MultiselectDropdown
+   */
   setSelected(_event: Event, option: MultiSelectOption) {
      if (!this.disabledSelection) {
       if (_event.stopPropagation) {
@@ -162,9 +275,21 @@ export class MultiselectDropdown implements OnInit, OnChanges, DoCheck, OnDestro
       this.model = this.model.slice();
     }
   }
+
+  /**
+   * 
+   * 
+   * @memberof MultiselectDropdown
+   */
   updateNumSelected() {
     this.numSelected = this.model.length || 0;
   }
+
+  /**
+   * 
+   * 
+   * @memberof MultiselectDropdown
+   */
   updateTitle() {
     this.title = [];
     if (this.numSelected === 0) {
@@ -180,6 +305,14 @@ export class MultiselectDropdown implements OnInit, OnChanges, DoCheck, OnDestro
         + (this.numSelected === 1 ? this.texts.checked : this.texts.checkedPlural)];
     }
   }
+
+  /**
+   * 
+   * 
+   * @param {Event} event 
+   * @param {MultiSelectOption} option 
+   * @memberof MultiselectDropdown
+   */
   preventCheckboxCheck(event: Event, option: MultiSelectOption) {
     if (this.model.indexOf(option.id) === -1 &&
       event.preventDefault
