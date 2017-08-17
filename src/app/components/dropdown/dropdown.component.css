@@ -1,0 +1,22 @@
+a {
+  outline: none !important;
+}
+
+.dropdown-inline {
+  display: inline-block;
+}
+.dropdown-toggle{
+  padding: 15px;
+  background: #fff;
+  border: 1px solid darkkhaki;
+}
+.dropdown-toggle .caret {
+  margin-left: 4px;
+  white-space: nowrap;
+  display: inline-block;
+}
+.tags{
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+}

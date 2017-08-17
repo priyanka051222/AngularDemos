@@ -1,0 +1,17 @@
+<div class="row bg-warning " >
+    <div  class="col-lg-8 col-md-8 col-sm-8 col-xs-8 column-table">
+        <a [routerLink]="['/users',user.id]">
+            <div  class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span [class.hidden]="showUpdateButton">{{user.firstName}} </span>
+            </div>
+        </a>
+            <div  class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span [class.hidden]="showUpdateButton">{{user.lastName}} </span>
+            </div>  
+        
+    </div> 
+    <div  class="col-lg-4 col-md-4 col-sm-4 col-xs-4 column-table">
+            <a><span class="glyphicon glyphicon-edit" (click)="editUser(user.id)"></span></a>
+            <span class="glyphicon glyphicon-trash" (click)="deleteUser(user.id)"></span>
+    </div> 
+</div> 

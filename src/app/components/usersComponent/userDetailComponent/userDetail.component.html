@@ -1,0 +1,23 @@
+<div class="well">
+    <div>
+        <label for="editedFirstName">First Name:</label>
+        <span>{{user.firstName}} </span>
+        </div>
+    <div>
+        <label for="editedLastName">Last Name:</label>
+        <span>{{user.lastName}} </span>
+       </div>
+    <div>
+        <label for="editedDob">Date of birth:</label>
+        <span> {{user.dob | date}} </span>
+      </div>
+    <div >
+        <label for="editedDob">Country</label>
+        <span> {{user.country}} </span>
+    </div>
+    <div>
+        <label for="editedDob">State</label>
+        <span> {{user.state}} </span>
+    </div>
+    <button class="btn btn-primary" (click)="goBackToUserList()" >Back</button>  
+   </div>

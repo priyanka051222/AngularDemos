@@ -1,0 +1,14 @@
+h2{
+    margin-top: 0;
+}
+tr:hover{
+    cursor: pointer;
+}
+.column-table{
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+.glyphicon:hover{
+ cursor: pointer;
+ color: green;
+}

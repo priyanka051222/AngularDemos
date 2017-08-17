@@ -1,0 +1,172 @@
+{
+  "5049":[],
+  "5040":[
+  {
+    "quantityType": "MAX_AMOUNT",
+    "quantity": {
+      "amount": 100.0,
+      "currency": "EUR"
+    },
+    "limitType": "DEPOSIT",
+    "period": "DAILY",
+    "scope": {
+      "gameId": null,
+      "paymentMethodType": null,
+      "channel": null
+    },
+    "defaultLimit": false,
+    "effectiveFrom": "2016-02-16T15:00:00Z",
+    "effectiveUntil": "2018-02-16T15:00:00Z",
+    "requestedBy": {
+      "id": "7913",
+      "type": 3
+    },
+    "balance": {
+      "amount": 20.0,
+      "currency": "EUR"
+    },
+    "pending": {
+      "quantity": {
+        "amount": 100.0,
+        "currency": "EUR"
+      },
+      "takesEffect": "2017-06-16T16:00:00Z"
+    }
+  },
+  {
+    "quantityType": "MAX_AMOUNT",
+    "quantity": {
+      "amount": 200.0,
+      "currency": "EUR"
+    },
+    "limitType": "DEPOSIT",
+    "period": "WEEKLY",
+    "scope": {
+      "gameId": null,
+      "paymentMethodType": null,
+      "channel": null
+    },
+    "defaultLimit": false,
+    "effectiveFrom": "2016-02-16T15:00:00Z",
+    "effectiveUntil": "2018-02-16T15:00:00Z",
+    "requestedBy": {
+      "id": "7913",
+      "type": 3
+    },
+    "balance": {
+      "amount": 57.30,
+      "currency": "EUR"
+    },
+    "pending": {
+      "quantity": {
+        "amount": 400.0,
+        "currency": "EUR"
+      },
+      "takesEffect": "2017-06-16T16:00:00Z"
+    }
+  },
+  {
+    "quantityType": "MAX_AMOUNT",
+    "quantity": {
+      "amount": 300.0,
+      "currency": "EUR"
+    },
+    "limitType": "DEPOSIT",
+    "period": "MONTHLY",
+    "scope": {
+      "gameId": null,
+      "paymentMethodType": null,
+      "channel": null
+    },
+    "defaultLimit": false,
+    "effectiveFrom": "2016-02-16T15:00:00Z",
+    "effectiveUntil": "2018-02-16T15:00:00Z",
+    "requestedBy": {
+      "id": "7913",
+      "type": 3
+    },
+    "balance": {
+      "amount": 90.0,
+      "currency": "EUR"
+    }
+  },
+  {
+    "quantityType": "MAX_TX_COUNT",
+    "quantity": {
+      "count": 10
+    },
+    "limitType": "DEPOSIT",
+    "period": "DAILY",
+    "scope": {
+      "gameId": null,
+      "paymentMethodType": null,
+      "channel": null
+    },
+    "defaultLimit": false,
+    "effectiveFrom": "2016-02-16T15:00:00Z",
+    "effectiveUntil": "2018-02-16T15:00:00Z",
+    "requestedBy": {
+      "id": "7913",
+      "type": 3
+    },
+    "balance": {
+      "count": 3
+    },
+    "pending": {
+      "quantity": {
+        "count": 20
+      },
+      "takesEffect": "2017-06-16T16:00:00Z"
+    }
+  },
+  {
+    "quantityType": "MIN_AMOUNT",
+    "quantity": {
+      "amount": 1.0,
+      "currency": "EUR"
+    },
+    "limitType": "DEPOSIT",
+    "period": "TRANSACTION",
+    "scope": {
+      "gameId": null,
+      "paymentMethodType": null,
+      "channel": null
+    },
+    "defaultLimit": true,
+    "effectiveFrom": "2016-02-16T15:00:00Z",
+    "effectiveUntil": "2018-02-16T15:00:00Z"
+  },
+  {
+    "quantityType": "MAX_AMOUNT",
+    "quantity": {
+      "amount": 300.0,
+      "currency": "EUR"
+    },
+    "limitType": "BUY",
+    "period": "DAILY",
+    "scope": {
+      "gameId": null,
+      "paymentMethodType": null,
+      "channel": null
+    },
+    "defaultLimit": false,
+    "effectiveFrom": "2016-02-16T15:00:00Z",
+    "effectiveUntil": "2018-02-16T15:00:00Z",
+    "requestedBy": {
+      "id": "7913",
+      "type": 3
+    },
+    "balance": {
+      "amount": 73.75,
+      "currency": "EUR"
+    },
+    "pending": {
+      "quantity": {
+        "amount": 500.0,
+        "currency": "EUR"
+      },
+      "takesEffect": "2017-06-16T16:00:00Z"
+    }
+  }
+]
+}

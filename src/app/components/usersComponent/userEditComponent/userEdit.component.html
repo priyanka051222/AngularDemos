@@ -1,0 +1,31 @@
+<div class="well row">
+    <div class="col-lg-4">
+    <form  novalidate #userForm="ngForm" (submit)="submitUpdatedUser(user)" >
+    <div class="form-group" [ngClass]="{ 'has-error': !firstName.valid && firstName.touched }">
+        <label for="editedFirstName">First Name:</label>
+         <input #firstName="ngModel" type="text" minlength="3" class="form-control" [(ngModel)]="user.firstName" name="editedFirstName" required />
+            <p *ngIf="firstName.touched && !firstName.valid" [ngClass]="{ 'error-message': !firstName.valid && firstName.touched }">
+                Please enter first name
+            </p>
+        </div>
+    <div class="form-group">
+        <label for="editedLastName">Last Name:</label>
+         <input type="text" class="form-control" [(ngModel)]="user.lastName" name="editedLastName" required/>
+    </div>
+    <div class="form-group">
+        <label for="editedDob">Date of birth:</label>
+         <input type="date"  class="form-control" [(ngModel)]="user.dob" name="editedDob" required/>
+    </div>
+     <div class="form-group">
+        <label for="editedDob">Tags</label>
+        <ss-multiselect-dropdown [options]="myGames" [settings]="settingsMultiselect" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
+    </div>  
+    <countryStateSelector  [countryNameData]="user.country" [stateNameData]="user.state"  (stateSelected)="onStateChange($event)"></countryStateSelector>
+    <div>
+        <button class="btn btn-primary" [disabled]="!userForm.valid">Update</button>
+        <button class="btn btn-primary" (click)="goBackToUserList()" >Back</button>
+    </div>
+</form>
+userForm.value
+</div>
+</div>

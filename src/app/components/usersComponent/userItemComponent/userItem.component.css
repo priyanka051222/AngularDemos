@@ -1,0 +1,8 @@
+.column-table{
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+.glyphicon:hover{
+    cursor: pointer;
+    color: green;
+}

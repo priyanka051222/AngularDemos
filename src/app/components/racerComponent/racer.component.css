@@ -1,0 +1,16 @@
+.glyphicon-arrow-left{
+    color:green;
+}
+.glyphicon-arrow-right{
+    color: red;
+}
+tr:hover{
+    cursor: pointer;
+}
+.column-table{
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+.list-racer{
+    margin-top: 20px;
+}

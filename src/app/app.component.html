@@ -1,0 +1,56 @@
+<div class="container-fluid" style="width: 1180px">
+  <h1 class="text-center">
+     Netent
+  </h1>
+  <nav class="navbar navbar-default">
+      <ul class="nav navbar-nav">
+          <li routerLinkActive="active">
+              <a [routerLink]="['/welcome']">Home</a>
+          </li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+              <a [routerLink]="['/users']">Product List</a>
+          </li>
+          <li routerLinkActive="active">
+              <a [routerLink]="['/users', 0, 'edit']">Add User</a>
+          </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li *ngIf="authService.isLoggedIn()">
+              <a [routerLink]="['/login']">Welcome {{ authService.currentUser.userName }}</a>
+          </li>
+          <li *ngIf="!messageService.isDisplayed">
+              <a (click)="displayMessages()">Show Messages</a>
+          </li>
+          <li *ngIf="messageService.isDisplayed">
+              <a (click)="hideMessages()">Hide Messages</a>
+          </li>
+          <li *ngIf="!authService.isLoggedIn()">
+              <a [routerLink]="['/login']">Log In</a>
+          </li>
+          <li *ngIf="authService.isLoggedIn()">
+              <a (click)="logOut()">Log Out</a>
+          </li>
+      </ul>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
+<!-- <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">NetentAccount</a>
+    </div>
+    <ul class="nav nav-tabs">
+      <li [class.active]="currentComponent === 'users'"><a (click)="showComponent('users')">Users</a></li>
+      <li [class.active]="currentComponent === 'racers'"><a (click)="showComponent('racers')">Racers</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="tab-content">
+    <div id="users" class="tab-pane fade in" [class.active]="currentComponent === 'users'">
+      <users></users>
+    </div>
+    <div id="racers" class="tab-pane fade in" [class.active]="currentComponent === 'racers'">
+      <racers></racers>
+    </div>
+  </div> -->

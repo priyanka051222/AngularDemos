@@ -1,0 +1,28 @@
+<div class="row">
+   <countryStateSelector (stateSelected)="onStateChange($event)"></countryStateSelector>
+   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <label for="country">Highlight Color:</label>
+      <select [(ngModel)]="color" name="color">
+          <option  *ngFor="let color of highlightColors; let i  = index" [attr.data-index]="i" [value]="color.value">{{color.id}}</option>
+      </select>
+   </div>
+  </div>
+   <div class="row list-racer">
+     <div  *ngFor="let user of users" class="bg-warning">
+        <div  class="col-lg-3 col-md-3 col-sm-12 col-xs-12 column-table">
+            <span >{{user.firstName}} </span>
+          </div>
+        <div  class="col-lg-3 col-md-3 col-sm-12 col-xs-12 column-table">
+            <span [myHighlight]="color">{{user.lastName}} </span>
+        </div>
+        <div  class="col-lg-2 col-md-2 col-sm-12 col-xs-12 column-table">
+            <span >{{user.country}} </span>
+          </div>
+        <div  class="col-lg-2 col-md-2 col-sm-12 col-xs-12 column-table">
+            <span >{{user.starts}} </span>
+          </div>
+        <div  class="col-lg-2 col-md-2 col-sm-12 col-xs-12 column-table">
+            <span >{{user.wins}} </span>
+        </div>   
+    </div> 
+  </div> 
